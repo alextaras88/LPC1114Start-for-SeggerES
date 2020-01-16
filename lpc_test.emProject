@@ -1,0 +1,104 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="lpc_test" target="8" version="2">
+  <project Name="lpc_test">
+    <configuration
+      CMSIS_CORE="Yes"
+      Name="Common"
+      Placement="Flash"
+      Target="LPC1114FBD48/302"
+      arm_architecture="v6M"
+      arm_core_type="Cortex-M0"
+      arm_endian="Little"
+      arm_fpu_type="None"
+      arm_interwork="No"
+      arm_linker_heap_size="256"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="256"
+      arm_simulator_memory_simulation_parameter="ROM;0x00000000;0x00008000;RAM;0x10000000;0x00002000"
+      arm_target_debug_interface_type="ADIv5"
+      arm_target_device_name="LPC1114/302"
+      arm_target_interface_type="SWD"
+      c_preprocessor_definitions="__LPC1114FBD48_302__;__LPC1100_FAMILY;__LPC1100XL_SUBFAMILY;ARM_MATH_CM0;FLASH_PLACEMENT=1"
+      c_user_include_directories="$(ProjectDir)/CMSIS_5/CMSIS/Include;$(ProjectDir)/LPC1100/CMSIS/Device/Include/LPC11xx"
+      debug_register_definition_file="$(ProjectDir)/LPC111x_Registers.xml"
+      debug_target_connection="J-Link"
+      gcc_entry_point="Reset_Handler"
+      linker_memory_map_file="$(ProjectDir)/LPC1114FBD48_302_MemoryMap.xml"
+      linker_output_format="hex"
+      linker_printf_fp_enabled="Float"
+      linker_section_placement_file="$(ProjectDir)/flash_placement.xml"
+      macros="DeviceHeaderFile=$(PackagesDir)/LPC1100/CMSIS/Device/Include/LPC11xx/LPC11xx.h;DeviceLibraryIdentifier=M0l;DeviceSystemFile=$(PackagesDir)/LPC1100/CMSIS/Device/Source/system_LPC11xx.c;DeviceVectorsFile=$(PackagesDir)/LPC1100/Source/LPC111x_Vectors.s;DeviceFamily=LPC1100;DeviceSubFamily=LPC1100XL;Target=LPC1114FBD48/302;Placement=Flash"
+      project_directory=""
+      project_type="Executable"
+      target_reset_script="Reset();"
+      target_script_file="$(ProjectDir)/LPC1100_Target.js"
+      target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)" />
+    <folder Name="CMSIS Files">
+      <file file_name="LPC1100/CMSIS/Device/Include/LPC11xx/LPC11xx.h" />
+      <file file_name="LPC1100/CMSIS/Device/Source/system_LPC11xx.c">
+        <configuration
+          Name="Common"
+          default_code_section=".init"
+          default_const_section=".init_rodata" />
+      </file>
+    </folder>
+    <folder Name="RTT Files">
+      <file file_name="SEGGER_RTT.c" />
+      <file file_name="SEGGER_RTT.h" />
+      <file file_name="SEGGER_RTT_Conf.h" />
+      <file file_name="SEGGER_RTT_SES.c" />
+    </folder>
+    <folder Name="Script Files">
+      <file file_name="LPC1100/Scripts/LPC1100_Target.js">
+        <configuration Name="Common" file_type="Reset Script" />
+      </file>
+    </folder>
+    <folder Name="Source Files">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+      <folder Name="src">
+        <file file_name="eeprom.c" />
+        <file file_name="i2c.c" />
+        <file file_name="main.c" />
+        <file file_name="system.c" />
+        <file file_name="uart.c" />
+        <file file_name="spi.c" />
+        <file file_name="delay.c" />
+        <file file_name="mlx90614.c" />
+        <file file_name="ssd1306.c" />
+        <file file_name="ssd1306_fonts.c" />
+        <file file_name="timer.c" />
+      </folder>
+      <folder Name="inc">
+        <file file_name="eeprom.h" />
+        <file file_name="i2c.h" />
+        <file file_name="main.h" />
+        <file file_name="system.h" />
+        <file file_name="uart.h" />
+        <file file_name="spi.h" />
+        <file file_name="delay.h" />
+        <file file_name="mlx90614.h" />
+        <file file_name="ssd1306.h" />
+        <file file_name="ssd1306_fonts.h" />
+        <file file_name="timer.h" />
+      </folder>
+    </folder>
+    <folder Name="System Files">
+      <file file_name="thumb_crt0.s" />
+      <file file_name="LPC1100/Source/LPC1100_Startup.s" />
+      <file file_name="LPC1100/Source/LPC111x_Vectors.s">
+        <configuration Name="Common" file_type="Assembly" />
+      </file>
+    </folder>
+  </project>
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_optimization_level="None" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="None"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 1" />
+</solution>
